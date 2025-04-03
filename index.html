@@ -4,8 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div></div>
+    <section id="ramoForm">
+        <h3>Valentin</h3>
+        <p>Seleccione el tipo de Ramo que desea</p>
+        <button onclick="ramoForm.hidden=true,floresForm.hidden=false">Flores</button>
+        <button onclick="ramoForm.hidden=true,frutasForm.hidden=false">Frutas</button>
+    </section>
+    <section id="floresForm" hidden="true">
+        <h3>Datos sobre el ramo de Flores</h3>
+        <input type="text" id="floresForm_inCodigo" placeholder="Codigo"></input>
+        <br>
+        <input type="number" id="floresForm_inEnvase" placeholder="Envanse"></input>
+        <br>
+        <input type="text" id="floresForm_inCosto" placeholder="costo" min="0"></input><br>
+        <br>
+        <input type="radio" name="tipo" id="floresForm_inTipoA" value="A">Artificiales</input>
+        <input type="radio" name="tipo" id="floresForm_inTipoN" value="N">Naturales</input>
+        <br>
+        <button id="floresForm_btProcesar">Procesar</button>
+        <button onclick="ramoForm.hidden=false,floresForm.hidden=true">Regresar</button>
+    </section>
+    <section id="frutasForm" hidden="true">
+        <h3>Datos del los ramos de Frutas</h3>
+        <input type="text" id="frutasForm_inCodigo" placeholder="Codigo"></input>
+        <br>
+        <input type="number" id="frutasForm_inEnvase" placeholder="Envanse"></input>
+        <br>
+        <input type="text" id="frutasForm_inCosto" placeholder="Costo" min="0"></input>
+        <br>
+        <p>extras, puede ser chocolate o botella de vino?</p>
+        <input type="radio" name="extra" id="frutasForm_inExtraSi" value="SI">SI</input>
+        <input type="radio" name="extra" id="frutasForm_inExtraNo" value="NO">NO</input>
+        <br>
+        <button id="frutasForm_btProcesar">Procesar</button>
+        <button onclick="ramoForm.hidden=false,frutasForm.hidden=true">Regresar</button>
+    </section>
+    <br>
+    <section id="mainForm">
+        <table id="mainForm_tablaFlores">
+            <tr>
+                <th>Codigo</th>
+                <th>Envase</th>
+                <th>Costo</th>
+                <th>Tipo</th>
+                <th>Descuento</th>
+                <th>Incremento</th>
+                <th>Precio</th>
+            </tr>
+        </table>
+        </table>
+        <br>
+        <table id="mainForm_tablaFrutas">
+            <tr>
+                <th>Codigo</th>
+                <th>Envase</th>
+                <th>Costo</th>
+                <th>Extras</th>
+                <th>Descuento</th>
+                <th>Precio</th>
+            </tr>
+        </table>
+        <p>Total vendido: <span id="mainForm_lblTotalPagados">?</span>$</p>
+        <p>Cantidad de flores naturales: <span id="mainForm_lblfloresNaturales">?</span></p>
+        <p>Cantidad de Flores naturales en envase mediano: <span id="mainForm_lblfloresNaturalesEnvaseMediano">?</span></p>
+        <p>Porcentaje de Flores naturales con envase mediano: <span id="mainForm_lblporcentajeFloresNaturales">?</span>%</p>
+        <p>Total flores: <span id="mainForm_lblventaTotalflores">?</span>$</p>
+        <p>Total Frutas: <span id="mainForm_lblventaTotalfrutas">?</span>$</p>
+    </section>
+</body>
+<script type="module">
+    import Cl_Principal from "./js/principal.js";
+    new Cl_Principal();
+</script>
 </body>
 </html>
